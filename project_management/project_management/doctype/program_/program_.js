@@ -20,7 +20,7 @@ frappe.ui.form.on('Program_', {
 });
 function open_add_new_item_dialog(frm) {
     let d = new frappe.ui.Dialog({
-        title: __('Add New Item'),
+        title: ('Add New Item'),
         fields: [
             {
                 fieldname: 'item_group',
@@ -95,8 +95,7 @@ function open_add_new_item_dialog(frm) {
 function open_update_item_dialog(frm) {
     let items = frm.doc.program_items.filter(item => !item.finish);
     let fields = [
-        {
-            fieldname: 'program_item',
+        { fieldname: 'program_item',
             label: __('Program Item'),
             fieldtype: 'Select',
             options: items.map(item => ({
@@ -111,21 +110,18 @@ function open_update_item_dialog(frm) {
                 d.set_value('description', selected_item.description);
             }
         },
-        {
-            fieldname: 'quantity',
+        {fieldname: 'quantity',
             label: __('Quantity'),
             fieldtype: 'Int',
             reqd: 1
         },
-        {
-            fieldname: 'finish',
-            label: __('Finish'),
-            fieldtype: 'Check'
+        { fieldname: 'finish',
+         label: __('Finish'),
+        fieldtype: 'Check'
         },
-        {
-            fieldname: 'description',
-            label: __('Description'),
-            fieldtype: 'Small Text'
+        {fieldname: 'description',
+        label: __('Description'),
+        fieldtype: 'Small Text'
         }
     ];
     let d = new frappe.ui.Dialog({
